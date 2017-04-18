@@ -87,6 +87,11 @@ def preprocess():
 def sigmoid(z):
     return 1.0 / (1.0 + np.exp(-z))
 
+def softmax(z):
+    e = np.exp(z)
+    temp = np.sum(e,axis=1).reshape((e.shape[0],1))
+    return e/temp
+
 
 def blrObjFunction(initialWeights, *args):
     """
@@ -215,31 +220,49 @@ def mlrObjFunction(params, *args):
         error_grad: the vector of size (D+1) x 10 representing the gradient of
                     error function
     """
+    train_data, labeli = args
     n_data = train_data.shape[0]
     n_feature = train_data.shape[1]
     error = 0
     error_grad = np.zeros((n_feature + 1, n_class))
 
-    temp = np.ones((n_data, n_features + 1))
+    temp = np.ones((n_data, n_feature + 1))
 
     temp[:,1:] = train_data
 
-
-    print("w = ",w.shape)
-    print("temp = ",temp.shape)
-    print("train data = ",train_data.shape)
-    print("labeli = ",labeli.shape)
+    w = params.reshape((n_feature + 1, n_class))
 
     train_data = temp
 
     del temp
+
+
+    # print("w = ",w.shape)
+    # print("temp = ",temp.shape)
+    # print("train data = ",train_data.shape)
+    # print("labeli = ",labeli.shape)
+    
 
     ##################
     # YOUR CODE HERE #
     ##################
     # HINT: Do not forget to add the bias term to your input data
 
-    return error, error_grad
+    theta = softmax(np.dot(train_data, w))
+
+    # print("theta = ", theta.shape)
+
+    x1 = labeli * np.log(theta)
+
+    error = -np.sum(x1)
+
+    # print("error = ", error)
+
+    error_grad = np.dot((np.subtract(theta, labeli)).T, train_data)
+
+    error_grad = error_grad.T
+
+    return error, error_grad.flatten()
 
 
 def mlrPredict(W, data):
@@ -264,8 +287,21 @@ def mlrPredict(W, data):
     ##################
     # HINT: Do not forget to add the bias term to your input data
 
-    return label
+    temp = np.ones((data.shape[0], data.shape[1] + 1))
 
+    temp[:,1:] = data
+
+    data = temp
+
+    del temp
+
+    y=softmax(np.dot(data,W)) 
+      
+    label=np.argmax(y,axis=1)
+
+    label = label.reshape((data.shape[0],1))  
+
+    return label
 
 """
 Script for Logistic Regression
