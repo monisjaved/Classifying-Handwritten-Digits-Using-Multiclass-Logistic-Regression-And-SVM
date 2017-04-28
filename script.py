@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.io import loadmat
 from scipy.optimize import minimize
+from sklearn.svm import SVC
 
 
 def preprocess():
@@ -125,13 +126,6 @@ def blrObjFunction(initialWeights, *args):
 
     del temp
 
-
-    # print("w = ",w.shape)
-    # print("temp = ",temp.shape)
-    # print("train data = ",train_data.shape)
-    # print("labeli = ",labeli.shape)
-
-
     ##################
     # YOUR CODE HERE #
     ##################
@@ -139,29 +133,17 @@ def blrObjFunction(initialWeights, *args):
 
     theta = sigmoid(np.dot(train_data,w))
 
-    # print("theta = ",theta.shape)
-
     x1 = np.multiply(labeli,np.log(theta))
 
-    # print("x1 = ", x1.shape)
-
     x2 = np.multiply(np.subtract(1,labeli),np.log(np.subtract(1, theta)))
-
-    # print("x2 = ", x2.shape)
 
     error = np.sum(x1 + x2)
 
     error = -error/n_data
 
-    # print("error = ", error)
-
     error_grad = np.dot((np.subtract(theta, labeli)).T, train_data)
 
     error_grad = error_grad.T/n_data
-
-    # print("error grad = ", error_grad.shape)
-
-    # exit(0)
 
     return error, error_grad.flatten()
 
@@ -234,14 +216,7 @@ def mlrObjFunction(params, *args):
 
     train_data = temp
 
-    del temp
-
-
-    # print("w = ",w.shape)
-    # print("temp = ",temp.shape)
-    # print("train data = ",train_data.shape)
-    # print("labeli = ",labeli.shape)
-    
+    del temp    
 
     ##################
     # YOUR CODE HERE #
@@ -255,8 +230,6 @@ def mlrObjFunction(params, *args):
     x1 = labeli * np.log(theta)
 
     error = -np.sum(x1)
-
-    # print("error = ", error)
 
     error_grad = np.dot((np.subtract(theta, labeli)).T, train_data)
 
@@ -348,10 +321,68 @@ print('\n Testing set Accuracy:' + str(100 * np.mean((predicted_label == test_la
 Script for Support Vector Machine
 """
 
-print('\n\n--------------SVM-------------------\n\n')
 ##################
 # YOUR CODE HERE #
 ##################
+train_label_svc = np.ravel(train_label);
+validation_label_svc = np.ravel(validation_label);
+test_label_svc = np.ravel(test_label);
+
+print('\n SVM kernel linear')
+clf=SVC(kernel='linear')
+clf.fit(train_data, train_label_svc)
+predicted_label = clf.predict(np.array(train_data))
+print('\n Training set Accuracy:' + str(100*np.mean((predicted_label == train_label_svc).astype(float))) + '%')
+
+predicted_label = clf.predict(np.array(validation_data))
+print('\n Validation set Accuracy:' + str(100*np.mean((predicted_label == validation_label_svc).astype(float))) + '%')
+
+predicted_label = clf.predict(np.array(test_data))
+print('\n Testing set Accuracy:' + str(100*np.mean((predicted_label == test_label_svc).astype(float))) + '%')
+
+print('\n SVM gamma = 1.0')
+clf=SVC(gamma = 1.0)
+clf.fit(train_data, train_label_svc)
+predicted_label = clf.predict(np.array(train_data))
+print('\n Training set Accuracy:' + str(100*np.mean((predicted_label == train_label_svc).astype(float))) + '%')
+
+predicted_label = clf.predict(np.array(validation_data))
+print('\n Validation set Accuracy:' + str(100*np.mean((predicted_label == validation_label_svc).astype(float))) + '%')
+
+predicted_label = clf.predict(np.array(test_data))
+print('\n Testing set Accuracy:' + str(100*np.mean((predicted_label == test_label_svc).astype(float))) + '%')
+
+print('\n SVM default gamma')
+clf=SVC();
+clf.fit(train_data, train_label_svc)
+predicted_label = clf.predict(np.array(train_data));
+print('\n Training set Accuracy:' + str(100*np.mean((predicted_label == train_label_svc).astype(float))) + '%');
+
+predicted_label = clf.predict(np.array(validation_data));
+print('\n Validation set Accuracy:' + str(100*np.mean((predicted_label == validation_label_svc).astype(float))) + '%');
+
+predicted_label = clf.predict(np.array(test_data));
+print('\n Testing set Accuracy:' + str(100*np.mean((predicted_label == test_label_svc).astype(float))) + '%');
+
+print('\nSVM different values of C')
+
+for c in range(0,110,10):
+
+    if c == 0:
+        c = 1.0
+
+    print('\n C = %s'%c)
+
+    clf = SVC(C=c)
+    clf.fit(train_data, train_label_svc)
+    predicted_label = clf.predict(np.array(train_data))
+    print('\n Training set Accuracy:' + str(100*np.mean((predicted_label == train_label_svc).astype(float))) + '%')
+
+    predicted_label = clf.predict(np.array(validation_data))
+    print('\n Validation set Accuracy:' + str(100*np.mean((predicted_label == validation_label_svc).astype(float))) + '%')
+
+    predicted_label = clf.predict(np.array(test_data))
+    print('\n Testing set Accuracy:' + str(100*np.mean((predicted_label == test_label_svc).astype(float))) + '%')
 
 
 """

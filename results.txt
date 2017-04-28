@@ -1,0 +1,112 @@
+--------------SVM-------------------
+
+
+
+--------------SVM GAMMA 1.0 RBF-------------------
+
+
+ Training set Accuracy:100.0%
+
+ Validation set Accuracy:15.48%
+
+ Testing set Accuracy:17.14%
+
+--------------SVM GAMMA default RBF-------------------
+
+
+ Training set Accuracy:94.294%
+
+ Validation set Accuracy:94.02%
+
+ Testing set Accuracy:94.42%
+
+--------------SVM C value  1 to 100 RBF-------------------
+
+
+ C = 1.0
+
+ Training set Accuracy:94.294%
+
+ Validation set Accuracy:94.02%
+
+ Testing set Accuracy:94.42%
+
+ C = 10
+
+ Training set Accuracy:97.132%
+
+ Validation set Accuracy:96.18%
+
+ Testing set Accuracy:96.1%
+
+ C = 20
+
+ Training set Accuracy:97.952%
+
+ Validation set Accuracy:96.9%
+
+ Testing set Accuracy:96.67%
+
+ C = 30
+
+ Training set Accuracy:98.372%
+
+ Validation set Accuracy:97.1%
+
+ Testing set Accuracy:97.04%
+
+ C = 40
+
+ Training set Accuracy:98.706%
+
+ Validation set Accuracy:97.23%
+
+ Testing set Accuracy:97.19%
+
+ C = 50
+
+ Training set Accuracy:99.002%
+
+ Validation set Accuracy:97.31%
+
+ Testing set Accuracy:97.19%
+
+ C = 60
+
+ Training set Accuracy:99.196%
+
+ Validation set Accuracy:97.38%
+
+ Testing set Accuracy:97.16%
+
+ C = 70
+
+ Training set Accuracy:99.34%
+
+ Validation set Accuracy:97.36%
+
+ Testing set Accuracy:97.26%
+
+ C = 80
+
+ Training set Accuracy:99.438%
+
+ Validation set Accuracy:97.39%
+
+ Testing set Accuracy:97.33%
+
+ C = 90
+
+ Training set Accuracy:99.542%
+
+ Validation set Accuracy:97.36%
+
+ Testing set Accuracy:97.34%
+
+ C = 100
+
+ Training set Accuracy:99.612%
+
+ Validation set Accuracy:97.41%
+
+ Testing set Accuracy:97.4%
