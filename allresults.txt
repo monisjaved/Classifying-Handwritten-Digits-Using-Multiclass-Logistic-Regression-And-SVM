@@ -1,0 +1,138 @@
+class 0/9
+class 1/9
+class 2/9
+class 3/9
+class 4/9
+class 5/9
+class 6/9
+class 7/9
+class 8/9
+class 9/9
+
+ Training set Accuracy:84.902%
+
+ Validation set Accuracy:83.73%
+
+ Testing set Accuracy:84.15%
+
+ SVM kernel linear
+
+ Training set Accuracy:97.286%
+
+ Validation set Accuracy:93.64%
+
+ Testing set Accuracy:93.78%
+
+ SVM gamma = 1.0
+
+ Training set Accuracy:100.0%
+
+ Validation set Accuracy:15.48%
+
+ Testing set Accuracy:17.14%
+
+ SVM default gamma
+
+ Training set Accuracy:94.294%
+
+ Validation set Accuracy:94.02%
+
+ Testing set Accuracy:94.42%
+
+SVM different values of C
+
+ C = 1.0
+
+ Training set Accuracy:94.294%
+
+ Validation set Accuracy:94.02%
+
+ Testing set Accuracy:94.42%
+
+ C = 10
+
+ Training set Accuracy:97.132%
+
+ Validation set Accuracy:96.18%
+
+ Testing set Accuracy:96.1%
+
+ C = 20
+
+ Training set Accuracy:97.952%
+
+ Validation set Accuracy:96.9%
+
+ Testing set Accuracy:96.67%
+
+ C = 30
+
+ Training set Accuracy:98.372%
+
+ Validation set Accuracy:97.1%
+
+ Testing set Accuracy:97.04%
+
+ C = 40
+
+ Training set Accuracy:98.706%
+
+ Validation set Accuracy:97.23%
+
+ Testing set Accuracy:97.19%
+
+ C = 50
+
+ Training set Accuracy:99.002%
+
+ Validation set Accuracy:97.31%
+
+ Testing set Accuracy:97.19%
+
+ C = 60
+
+ Training set Accuracy:99.196%
+
+ Validation set Accuracy:97.38%
+
+ Testing set Accuracy:97.16%
+
+ C = 70
+
+ Training set Accuracy:99.34%
+
+ Validation set Accuracy:97.36%
+
+ Testing set Accuracy:97.26%
+
+ C = 80
+
+ Training set Accuracy:99.438%
+
+ Validation set Accuracy:97.39%
+
+ Testing set Accuracy:97.33%
+
+ C = 90
+
+ Training set Accuracy:99.542%
+
+ Validation set Accuracy:97.36%
+
+ Testing set Accuracy:97.34%
+
+ C = 100
+
+ Training set Accuracy:99.612%
+
+ Validation set Accuracy:97.41%
+
+ Testing set Accuracy:97.4%
+
+ Multiclass
+
+ Training set Accuracy:93.098%
+
+ Validation set Accuracy:92.41%
+
+ Testing set Accuracy:92.5%
