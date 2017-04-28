@@ -1,9 +1,4 @@
---------------SVM-------------------
-
-
-
---------------SVM GAMMA 1.0 RBF-------------------
-
+ SVM gamma = 1.0
 
  Training set Accuracy:100.0%
 
@@ -11,8 +6,7 @@
 
  Testing set Accuracy:17.14%
 
---------------SVM GAMMA default RBF-------------------
-
+ SVM default gamma
 
  Training set Accuracy:94.294%
 
@@ -20,8 +14,7 @@
 
  Testing set Accuracy:94.42%
 
---------------SVM C value  1 to 100 RBF-------------------
-
+SVM different values of C 
 
  C = 1.0
 
