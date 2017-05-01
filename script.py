@@ -408,3 +408,11 @@ print('\n Validation set Accuracy:' + str(100 * np.mean((predicted_label_b == va
 # Find the accuracy on Testing Dataset
 predicted_label_b = mlrPredict(W_b, test_data)
 print('\n Testing set Accuracy:' + str(100 * np.mean((predicted_label_b == test_label).astype(float))) + '%')
+
+f1 = open('params.pickle', 'wb') 
+pickle.dump(W, f1) 
+f1.close()
+
+f2 = open('params_bonus.pickle', 'wb')
+pickle.dump(W_b, f2)
+f2.close()
