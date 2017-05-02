@@ -299,7 +299,7 @@ W = np.zeros((n_feature + 1, n_class))
 initialWeights = np.zeros((n_feature + 1, 1))
 opts = {'maxiter': 100}
 for i in range(n_class):
-    print("class %s/9" % str(i))
+    #print("class %s/9" % str(i))
     labeli = Y[:, i].reshape(n_train, 1)
     args = (train_data, labeli)
     nn_params = minimize(blrObjFunction, initialWeights, jac=True, args=args, method='CG', options=opts)
